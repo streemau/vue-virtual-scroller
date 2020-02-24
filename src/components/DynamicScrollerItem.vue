@@ -41,6 +41,11 @@ export default {
       type: String,
       default: 'div',
     },
+
+    marginBottom: {
+      type: Number,
+      default: 0,
+    },
   },
 
   computed: {
@@ -49,7 +54,8 @@ export default {
     },
 
     size () {
-      return (this.vscrollData.validSizes[this.id] && this.vscrollData.sizes[this.id]) || 0
+      const size = (this.vscrollData.validSizes[this.id] && this.vscrollData.sizes[this.id]) || 0
+      return size + this.marginBottom
     },
   },
 

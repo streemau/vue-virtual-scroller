@@ -956,6 +956,11 @@ var DynamicScrollerItem = {
     tag: {
       type: String,
       default: 'div'
+    },
+
+    marginBottom: {
+      type: Number,
+      default: 0
     }
   },
 
@@ -964,7 +969,8 @@ var DynamicScrollerItem = {
       return this.vscrollData.simpleArray ? this.index : this.item[this.vscrollData.keyField];
     },
     size: function size() {
-      return this.vscrollData.validSizes[this.id] && this.vscrollData.sizes[this.id] || 0;
+      var size = this.vscrollData.validSizes[this.id] && this.vscrollData.sizes[this.id] || 0;
+      return size + this.marginBottom;
     }
   },
 
