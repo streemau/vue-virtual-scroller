@@ -4,6 +4,8 @@
     :items="itemsWithSize"
     :min-item-size="minItemSize"
     :direction="direction"
+    :margin-top="marginTop"
+    :margin-bottom="marginBottom"
     key-field="id"
     v-bind="$attrs"
     @resize="onScrollerResize"
@@ -55,6 +57,16 @@ export default {
     minItemSize: {
       type: [Number, String],
       required: true,
+    },
+
+    marginTop: {
+      type: Number,
+      default: 0,
+    },
+
+    marginBottom: {
+      type: Number,
+      default: 0,
     },
   },
 

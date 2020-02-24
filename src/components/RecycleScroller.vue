@@ -116,6 +116,16 @@ export default {
       type: Boolean,
       default: false,
     },
+
+    marginTop: {
+      type: Number,
+      default: 0,
+    },
+
+    marginBottom: {
+      type: Number,
+      default: 0,
+    },
   },
 
   data () {
@@ -136,11 +146,13 @@ export default {
         const items = this.items
         const field = this.sizeField
         const minItemSize = this.minItemSize
+        const marginTop = this.marginTop
+        const marginBottom = this.marginBottom
         let accumulator = 0
         let current
         for (let i = 0, l = items.length; i < l; i++) {
           current = items[i][field] || minItemSize
-          accumulator += current
+          accumulator += current + marginTop + marginBottom
           sizes[i] = { accumulator, size: current }
         }
         return sizes
